@@ -14,9 +14,7 @@
         <p class="country-info__text">
             <span class="country-info__text-header">Languages: </span>
             <span class="country-info__text-descr">
-                {{#each this.languages}}
-                    {{name}}, 
-                {{/each}}
+                {{langArrToStr this.languages}}
             </span>
             
         </p>

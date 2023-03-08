@@ -12,25 +12,36 @@ const template = Handlebars.templates;
 
 input.addEventListener('input', debounce(inputHandler, DEBOUNCE_DELAY));
 
+Handlebars.registerHelper('langArrToStr', function (languages){
+    return languages.map((e)=>{
+        return e = e.name
+    }).join(', ')
+})
+
 function inputHandler(event){
-    const inputVal = event.target.value;
+    const inputVal = event.target.value.trim();
 
     if (inputVal.length === 0){
         countryList.innerHTML = '';
         countryInfo.innerHTML = '';
         return;
     }
-    
-    fetchCountries(`${inputVal.toLowerCase()}`.trim())
+
+    // console.log('input value: ', inputVal)    
+    fetchCountries(inputVal.toLowerCase())
     .then((data)=>{
+        console.log(data)
         if (data.length > 10) {
             Notiflix.Notify.info("Too many matches found. Please enter a more specific name.")
         } else if(data.length > 1 && data.length <= 10){
             markupArr(data)
         } else if (data.length === 1){
             markupCountry(data);
-            let countryLang = document.querySelector('.country-info__text-descr');
-            countryLang.textContent = countryLang.textContent.trim().slice(0, -1);
+            console.log(data[0].languages.map((e)=>{
+                return e = e.name
+            }).join(', '))
+            // let countryLang = document.querySelector('.country-info__text-descr');
+            // countryLang.textContent = countryLang.textContent.trim().slice(0, -1);
         }
     })
     .catch(error => {
@@ -54,3 +65,7 @@ function markupCountry(data){
     const obj = data[0];
     countryInfo.innerHTML = template.country({obj});
 }
+
+// {{#each this.languages}}
+// {{name}}, 
+// {{/each}}
