@@ -27,6 +27,9 @@ ul{
   flex-direction: column;
   gap: 10px;
 }
+.country-info__item:nth-child(1) p{
+  font-weight: 700;
+}
 ul li{
   padding-left: 5px;
   display: flex;
@@ -41,4 +44,7 @@ img{
 }
 p{
   margin: 0;
+}
+.country-info__text span{
+  font-weight: 500;
 }

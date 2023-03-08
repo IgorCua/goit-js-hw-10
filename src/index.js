@@ -7,6 +7,7 @@ const DEBOUNCE_DELAY = 300;
 const input = document.querySelector('#search-box');
 const countryList = document.querySelector('.country-list');
 const countryInfo = document.querySelector('.country-info');
+
 const template = Handlebars.templates;
 
 input.addEventListener('input', debounce(inputHandler, DEBOUNCE_DELAY));
@@ -28,6 +29,9 @@ function inputHandler(event){
             markupArr(data)
         } else if (data.length === 1){
             markupCountry(data);
+            // let countryLang = document.querySelector('.country-info__list').lastElementChild.textContent;
+            // countryLang = countryLang.trim().slice(0, -1);
+            // console.log(countryLang)
         }
     })
     .catch(error => {
