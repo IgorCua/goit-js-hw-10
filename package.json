@@ -6,7 +6,8 @@
   "scripts": {
     "start": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /goit-js-hw-10/",
-    "handlebars": "handlebars src/handlebars/example.handlebars -f src/handlebars/example.precompiled.js"
+    "handlebarsArr": "handlebars src/handlebars/array.handlebars -f src/handlebars/array.precompiled.js",
+    "handlebarsCountry": "handlebars src/handlebars/country.handlebars -f src/handlebars/country.precompiled.js"
   },
   "repository": {
     "type": "git",
