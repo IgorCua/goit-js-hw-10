@@ -29,9 +29,8 @@ function inputHandler(event){
             markupArr(data)
         } else if (data.length === 1){
             markupCountry(data);
-            // let countryLang = document.querySelector('.country-info__list').lastElementChild.textContent;
-            // countryLang = countryLang.trim().slice(0, -1);
-            // console.log(countryLang)
+            let countryLang = document.querySelector('.country-info__text-descr');
+            countryLang.textContent = countryLang.textContent.trim().slice(0, -1);
         }
     })
     .catch(error => {

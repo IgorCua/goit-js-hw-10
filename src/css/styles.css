@@ -45,6 +45,9 @@ img{
 p{
   margin: 0;
 }
-.country-info__text span{
+.country-info__text-header{
   font-weight: 500;
 }
+/* .country-info__text-descr{
+
+} */

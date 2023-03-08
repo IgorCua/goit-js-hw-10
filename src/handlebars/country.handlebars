@@ -5,17 +5,20 @@
         <p>{{this.name}}</p>
     </li>
     <li>
-        <p class="country-info__text"><span>Capital: </span>{{this.capital}}</p>
+        <p class="country-info__text"><span class="country-info__text-header">Capital: </span>{{this.capital}}</p>
     </li>
     <li>
-        <p class="country-info__text"><span>Population: </span>{{this.population}}</p>
+        <p class="country-info__text"><span class="country-info__text-header">Population: </span>{{this.population}}</p>
     </li>
     <li>
         <p class="country-info__text">
-            <span>Languages: </span>
-            {{#each this.languages}}
-                {{name}}, 
-            {{/each}}
+            <span class="country-info__text-header">Languages: </span>
+            <span class="country-info__text-descr">
+                {{#each this.languages}}
+                    {{name}}, 
+                {{/each}}
+            </span>
+            
         </p>
     </li>
 </ul>
