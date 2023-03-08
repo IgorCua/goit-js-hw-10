@@ -27,7 +27,6 @@ function inputHandler(event){
         return;
     }
 
-    // console.log('input value: ', inputVal)    
     fetchCountries(inputVal.toLowerCase())
     .then((data)=>{
         console.log(data)
@@ -37,11 +36,6 @@ function inputHandler(event){
             markupArr(data)
         } else if (data.length === 1){
             markupCountry(data);
-            console.log(data[0].languages.map((e)=>{
-                return e = e.name
-            }).join(', '))
-            // let countryLang = document.querySelector('.country-info__text-descr');
-            // countryLang.textContent = countryLang.textContent.trim().slice(0, -1);
         }
     })
     .catch(error => {
@@ -56,7 +50,6 @@ function inputHandler(event){
 function markupArr(data){
     countryInfo.innerHTML = '';
     let arr = data;
-    // console.log('markup arr', arr);
     countryList.innerHTML = template.array({arr});
 }
 
@@ -65,7 +58,3 @@ function markupCountry(data){
     const obj = data[0];
     countryInfo.innerHTML = template.country({obj});
 }
-
-// {{#each this.languages}}
-// {{name}}, 
-// {{/each}}
